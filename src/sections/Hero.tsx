@@ -12,6 +12,7 @@ import {
   useMotionValueEvent,
 } from "framer-motion";
 import { useRef } from "react";
+import LinkButton from "@/components/LinkButton";
 
 export const Hero = () => {
   const heroRef = useRef(null);
@@ -22,6 +23,7 @@ export const Hero = () => {
   const translateY = useTransform(scrollYProgress, [0, 1], [150, -150]);
   return (
     <section
+      id="hero"
       ref={heroRef}
       className="pt-8 pb-20 md:pt-5 md:pb-10 bg-[radial-gradient(ellipse_200%_100%_at_bottom_left,#184EC2,#EAEEFE_100%)] overflow-x-clip"
     >
@@ -37,7 +39,11 @@ export const Hero = () => {
               your progress, motivate your efforts, and celebrate your success.
             </p>
             <div className="flex gap-1 items-center mt-[30px]">
-              <button className="btn btn-primary">Get for free</button>
+              <LinkButton
+                title="Get for free"
+                containerStyles="btn btn-primary"
+                sectionId="cta"
+              />
               <button className="btn btn-text gap-1">
                 <span>Learn more</span>
                 <ArrowIcon className="h-5 w-5" />
