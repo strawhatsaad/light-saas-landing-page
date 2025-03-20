@@ -9,6 +9,15 @@ import apexLogo from "@/assets/logo-apex.png";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
+const logos = [
+  acmeLogo,
+  quantumLogo,
+  echoLogo,
+  celestialLogo,
+  pulseLogo,
+  apexLogo,
+];
+
 export const LogoTicker = () => {
   return (
     <div className="py-8 md:py-12 bg-white">
@@ -16,79 +25,27 @@ export const LogoTicker = () => {
         <div className="flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,black,transparent)]">
           <motion.div
             className="flex gap-14 flex-none pr-14"
+            initial={{
+              translateX: "-50%",
+            }}
             animate={{
-              translateX: "-100%",
+              translateX: "0",
             }}
             transition={{
               duration: 20,
               repeat: Infinity,
-              ease: "linear",
               repeatType: "loop",
+              ease: "linear",
             }}
           >
-            <Image
-              src={acmeLogo}
-              alt="Acme Logo"
-              className="logo-ticker-image"
-            />
-            <Image
-              src={quantumLogo}
-              alt="Quantum Logo"
-              className="logo-ticker-image"
-            />
-            <Image
-              src={echoLogo}
-              alt="Echo Logo"
-              className="logo-ticker-image"
-            />
-            <Image
-              src={celestialLogo}
-              alt="Celestial Logo"
-              className="logo-ticker-image"
-            />
-            <Image
-              src={pulseLogo}
-              alt="Pulse Logo"
-              className="logo-ticker-image"
-            />
-            <Image
-              src={apexLogo}
-              alt="Apex Logo"
-              className="logo-ticker-image"
-            />
-
-            {/* Second Set of Logos for Animation */}
-
-            <Image
-              src={acmeLogo}
-              alt="Acme Logo"
-              className="logo-ticker-image"
-            />
-            <Image
-              src={quantumLogo}
-              alt="Quantum Logo"
-              className="logo-ticker-image"
-            />
-            <Image
-              src={echoLogo}
-              alt="Echo Logo"
-              className="logo-ticker-image"
-            />
-            <Image
-              src={celestialLogo}
-              alt="Celestial Logo"
-              className="logo-ticker-image"
-            />
-            <Image
-              src={pulseLogo}
-              alt="Pulse Logo"
-              className="logo-ticker-image"
-            />
-            <Image
-              src={apexLogo}
-              alt="Apex Logo"
-              className="logo-ticker-image"
-            />
+            {[...logos, ...logos].map((logo, index) => (
+              <Image
+                key={index}
+                src={logo}
+                alt={`${logo.src} Logo`}
+                className="logo-ticker-image"
+              />
+            ))}
           </motion.div>
         </div>
       </div>
